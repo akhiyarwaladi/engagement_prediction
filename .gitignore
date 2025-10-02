@@ -1,0 +1,13 @@
+# Virtual Environment
+venv/
+
+# Downloaded Posts
+gallery-dl/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Log files
+*.log
