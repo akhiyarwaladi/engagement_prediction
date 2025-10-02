@@ -1,0 +1,89 @@
+# Configuration for Instagram Engagement Prediction Model
+# Project: FST UNJA Instagram Analytics
+
+# Data paths
+data:
+  raw_csv: "fst_unja_from_gallery_dl.csv"
+  processed: "data/processed/baseline_dataset.csv"
+  features: "data/features/feature_matrix.csv"
+  academic_calendar: "data/academic/calendar_unja_2022_2024.csv"
+
+# Instagram account info
+instagram:
+  username: "fst_unja"
+  follower_count: 4631  # From screenshot, update if needed
+
+# Feature engineering
+features:
+  baseline:
+    - caption_length
+    - word_count
+    - hashtag_count
+    - mention_count
+    - is_video
+    - hour
+    - day_of_week
+    - is_weekend
+    - month
+
+  enhanced:  # Phase 2
+    - sentiment_score
+    - emoji_count
+    - has_question
+    - has_exclamation
+    - near_academic_event
+    - event_type_encoded
+
+# Model configuration
+model:
+  random_forest:
+    n_estimators: 100
+    max_depth: 8
+    min_samples_split: 5
+    min_samples_leaf: 3
+    random_state: 42
+    n_jobs: -1
+
+  xgboost:  # Phase 2
+    n_estimators: 200
+    max_depth: 5
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+
+# Training configuration
+training:
+  test_size: 0.3
+  validation_size: 0.15  # From test set (50% of 30%)
+  random_state: 42
+  stratify: true
+  stratify_bins: 3  # low, medium, high engagement
+
+# Evaluation metrics
+evaluation:
+  regression_metrics:
+    - mae
+    - rmse
+    - mape
+    - r2
+  classification_metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+  target_performance:
+    mae_max: 70  # likes
+    r2_min: 0.50
+
+# Logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/training.log"
+
+# Output paths
+output:
+  models: "models"
+  figures: "docs/figures"
+  reports: "docs/reports"
