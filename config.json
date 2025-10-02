@@ -1,0 +1,15 @@
+{
+    "extractor": {
+        "instagram": {
+            "include": "posts",
+            "metadata": true,
+            "videos": true,
+            "video-thumbnails": false,
+            "image-filter": "username == 'fst_unja'",
+            "sleep-request": [2.0, 4.0]
+        }
+    },
+    "output": {
+        "directory": ["./gallery-dl/instagram/{username}/"]
+    }
+}
