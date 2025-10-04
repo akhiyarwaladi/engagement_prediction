@@ -1,0 +1,140 @@
+==========================================================================================
+                         PHASE 5: ULTRA-OPTIMIZATION
+                    Exploring Advanced Model Combinations
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Main data: 8610 posts
+   BERT embeddings: 8610 posts
+   Aesthetic features: 8198 posts
+
+[MERGE] Combined dataset: 188130 posts
+
+[FEATURES] Preparing feature matrices...
+   Baseline features: 9
+   BERT features: 768
+   Aesthetic features: 8
+
+[SPLIT] Train: 150504, Test: 37626
+
+==========================================================================================
+                         EXPERIMENT 1: ENSEMBLE WEIGHTS
+==========================================================================================
+[TRAIN] Training RF and HGB...
+
+[TEST] Testing weight combinations:
+   RF=0.00, HGB=1.00: MAE=30.42
+   RF=0.10, HGB=0.90: MAE=29.36
+   RF=0.20, HGB=0.80: MAE=28.31
+   RF=0.30, HGB=0.70: MAE=27.27
+   RF=0.40, HGB=0.60: MAE=26.22
+   RF=0.60, HGB=0.40: MAE=24.18
+   RF=0.70, HGB=0.30: MAE=23.16
+   RF=0.80, HGB=0.20: MAE=22.15
+
+[BEST] RF=1.00, HGB=0.00
+       MAE=20.14 likes
+
+==========================================================================================
+                         EXPERIMENT 2: FEATURE SELECTION
+==========================================================================================
+
+[TEST] Testing different feature counts:
+   Top-3 features: MAE=23.04
+      Features: caption_length, hashtag_count, month
+   Top-5 features: MAE=20.69
+      Features: caption_length, word_count, hashtag_count, hour, month
+   Top-7 features: MAE=20.58
+      Features: caption_length, word_count, hashtag_count, hour, day_of_week, is_weekend, month
+   Top-9 features: MAE=20.14
+      Features: caption_length, word_count, hashtag_count, mention_count, is_video, hour, day_of_week, is_weekend, month
+
+==========================================================================================
+                         EXPERIMENT 3: STACKING ENSEMBLE
+==========================================================================================
+
+[TRAIN] Training base models...
+
+[TEST] Testing meta-learners:
+   Ridge(alpha=0.1): MAE=28.31
+   Ridge(alpha=1.0): MAE=28.31
+   Ridge(alpha=10.0): MAE=28.31
+   Lasso(alpha=0.1): MAE=24.35
+   Lasso(alpha=1.0): MAE=128.35
+   Lasso(alpha=10.0): MAE=200.65
+
+==========================================================================================
+                         EXPERIMENT 4: PCA DIMENSIONALITY
+==========================================================================================
+
+[TEST] Testing different PCA components:
+   PCA=30 (variance=85.4%): MAE=14.64
+   PCA=50 (variance=90.5%): MAE=14.73
+   PCA=70 (variance=93.2%): MAE=14.09
+   PCA=100 (variance=95.6%): MAE=14.89
+
+==========================================================================================
+                         EXPERIMENT 5: POLYNOMIAL FEATURES
+==========================================================================================
+
+[TEST] Testing polynomial degrees:
+   Degree=2 (9 poly features): MAE=19.13
+   Degree=3 (19 poly features): MAE=21.24
+
+==========================================================================================
+                         EXPERIMENT 6: CROSS-VALIDATION
+==========================================================================================
+
+[CV] Running 5-fold cross-validation on baseline champion...
+   Fold 1: MAE=20.28, R2=0.9582
+   Fold 2: MAE=20.87, R2=0.9486
+   Fold 3: MAE=19.98, R2=0.9563
+   Fold 4: MAE=20.74, R2=0.9561
+   Fold 5: MAE=20.04, R2=0.9618
+
+[RESULT] Cross-validation: MAE=20.38 +/- 0.36
+         R2=0.9562
+
+==========================================================================================
+                              FINAL SUMMARY
+==========================================================================================
+
+[CHAMPION] Previous Best: MAE=51.82 (Baseline, 50/50 ensemble)
+
+[RESULTS] All Experiments:
+
+1. ENSEMBLE WEIGHTS:
+   Best: RF=1.00, HGB=0.00
+   MAE: 20.14 likes
+
+2. FEATURE SELECTION:
+   Best: Top-9 features
+   MAE: 20.14 likes
+   Features: caption_length, word_count, hashtag_count, mention_count, is_video, hour, day_of_week, is_weekend, month
+
+3. STACKING ENSEMBLE:
+   Best: Lasso(alpha=0.1)
+   MAE: 24.35 likes
+
+4. PCA DIMENSIONALITY:
+   Best: 70 components (93.2% variance)
+   MAE: 14.09 likes
+
+5. POLYNOMIAL FEATURES:
+   Best: Degree 2 (18 features)
+   MAE: 19.13 likes
+
+6. CROSS-VALIDATION:
+   MAE: 20.38 +/- 0.36
+   R2: 0.9562
+
+==========================================================================================
+[OVERALL BEST] PCA (70 components)
+              MAE: 14.09 likes
+              Improvement: 72.8% vs previous best
+
+[SUCCESS] NEW CHAMPION FOUND!
+
+==========================================================================================
+                              PHASE 5 COMPLETE
+==========================================================================================

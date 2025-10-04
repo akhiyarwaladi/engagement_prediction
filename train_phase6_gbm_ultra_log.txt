@@ -1,0 +1,107 @@
+==========================================================================================
+                    PHASE 6: GBM ULTRA MODEL TRAINING
+          Validating Phase 5.1 Breakthrough (MAE=2.29) on Production Data
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Main dataset: 8610 posts
+   BERT embeddings: 8610 posts, 770 features
+   Aesthetic features: 8198 posts, 9 features
+
+[MERGE] Merging datasets...
+   Merge keys: ['post_id', 'account']
+   After BERT merge: 34272 posts
+   After aesthetic merge: 185474 posts
+   [ERROR] Too many posts (185474), data merge issue detected!
+   [FIX] Deduplicating by post_id...
+   After deduplication: 3782 posts
+   [OK] Final dataset: 3782 posts
+
+[FEATURES] Preparing feature matrices...
+   BERT features: 768
+   Aesthetic features: 8
+
+[SPLIT] Creating train/test split...
+   Train: 3025 posts
+   Test:  757 posts
+
+[PCA] Applying BERT PCA-150 (optimal from Phase 5.1)...
+   BERT: 768 -> 150 dims (95.9% variance)
+
+[COMBINE] Building feature matrix...
+   Without aesthetic: 159 features
+   With aesthetic: 167 features
+
+[PREPROCESS] Outlier clipping and scaling...
+   Clipping at 1692 likes (99th percentile)
+
+==========================================================================================
+                    EXPERIMENT 1: GBM WITHOUT AESTHETIC (159 features)
+==========================================================================================
+
+[TRAIN] Training GradientBoostingRegressor...
+
+[RESULTS]
+   MAE:  109.55 likes
+   RMSE: 295.77 likes
+   R²:   0.1551
+
+==========================================================================================
+                    EXPERIMENT 2: GBM WITH AESTHETIC (167 features)
+==========================================================================================
+
+[TRAIN] Training GradientBoostingRegressor...
+
+[RESULTS]
+   MAE:  109.42 likes
+   RMSE: 297.59 likes
+   R²:   0.1446
+
+==========================================================================================
+                              COMPARISON & SELECTION
+==========================================================================================
+
+[COMPARE]
+   GBM WITHOUT aesthetic (159 features): MAE=109.55, R²=0.1551
+   GBM WITH aesthetic (167 features):    MAE=109.42, R²=0.1446
+
+[WINNER] WITH aesthetic (MAE 109.42 < 109.55)
+
+[SAVE] Saving production model...
+   Model saved: models/phase6_gbm_ultra_20251004_155601.pkl
+   Size: 6.3 MB
+
+[IMPORTANCE] Top 15 most important features:
+
+    1. aesthetic_5                    0.074583
+    2. hashtag_count                  0.065165
+    3. bert_pca_2                     0.052886
+    4. aesthetic_4                    0.039275
+    5. aesthetic_0                    0.030253
+    6. month                          0.025424
+    7. bert_pca_6                     0.021210
+    8. bert_pca_19                    0.019710
+    9. aesthetic_6                    0.016594
+   10. bert_pca_7                     0.016094
+   11. bert_pca_4                     0.016078
+   12. bert_pca_15                    0.015034
+   13. bert_pca_5                     0.013895
+   14. aesthetic_1                    0.012713
+   15. bert_pca_3                     0.012029
+
+==========================================================================================
+                         PERFORMANCE VS PREVIOUS PHASES
+==========================================================================================
+
+[PROGRESS]
+   Phase 5 Ultra (BERT PCA-70):  MAE = 27.23 likes
+   Phase 6 GBM (BERT PCA-150):   MAE = 109.42 likes
+   Improvement:                  -301.8%
+
+Traceback (most recent call last):
+  File "C:\Users\MyPC PRO\Documents\engagement_prediction\train_phase6_gbm_ultra.py", line 389, in <module>
+    print("[STATUS] \u26a0\ufe0f  Phase 5.1 exploration results may not reproduce on production data")
+  File "C:\Users\MyPC PRO\.conda\envs\ultrathink\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 9-10: character maps to <undefined>

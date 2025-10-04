@@ -1,0 +1,149 @@
+
+==========================================================================================
+                    MULTI-ACCOUNT MODEL TRAINING
+               8,610 Posts from 8 UNJA Accounts
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Multi-account data: 8610 posts
+   BERT embeddings: 8610 posts
+   Aesthetic features: 8198 posts
+
+[MERGE] Merged dataset: 32028 posts
+
+[ACCOUNTS] Posts per account:
+   bemfebunja                 3933 posts
+   bemfkik.unja               5916 posts
+   faperta.unja.official      6183 posts
+   fhunjaofficial             3440 posts
+   fkipunja_official           208 posts
+   fst_unja                   1370 posts
+   himmajemen.unja            3436 posts
+   univ.jambi                 7542 posts
+
+[FEATURES] Preparing feature matrices...
+   BERT PCA: 768 -> 50 dims (88.3% variance)
+
+[MODELS] Feature counts:
+   Model 1 (Baseline):        9 features
+   Model 2 (Baseline+BERT):  59 features
+   Model 3 (Full):           67 features
+
+[SPLIT] Creating train/test splits...
+   Train size: 25,622 posts
+   Test size:  6,406 posts
+
+[PREPROCESS] Applying transformations...
+   Outlier clipping: 99th percentile
+   Log transform: applied
+   Quantile scaling: normal distribution
+
+[TRAIN] Training Model 1 (Baseline)...
+   [OK] Random Forest trained
+   [OK] HistGradientBoosting trained
+
+[TRAIN] Training Model 2 (Baseline+BERT)...
+   [OK] Random Forest trained
+   [OK] HistGradientBoosting trained
+
+[TRAIN] Training Model 3 (Full)...
+   [OK] Random Forest trained
+   [OK] HistGradientBoosting trained
+
+==========================================================================================
+                              MODEL EVALUATION
+==========================================================================================
+
+Model 1 (Baseline - 9 features)
+   MAE:  51.82 likes
+   RMSE: 168.88 likes
+   R²:   0.8159
+   Improvement over mean baseline: 74.9%
+
+Model 2 (Baseline+BERT - 59 features)
+   MAE:  77.76 likes
+   RMSE: 204.19 likes
+   R²:   0.7308
+   Improvement over mean baseline: 62.4%
+
+Model 3 (Full - 67 features)
+   MAE:  56.67 likes
+   RMSE: 172.10 likes
+   R²:   0.8088
+   Improvement over mean baseline: 72.6%
+
+==========================================================================================
+                              MODEL COMPARISON
+==========================================================================================
+
+Model                          Features     MAE          RMSE         R²          
+------------------------------------------------------------------------------------------
+Baseline                       9            51.82        168.88       0.8159      
+Baseline + BERT                59           77.76        204.19       0.7308      
+Full (Baseline+BERT+NIMA)      67           56.67        172.10       0.8088      
+
+[CHAMPION] Baseline (MAE=51.82)
+
+[PROGRESS] Performance vs Previous Best:
+   Previous (1,949 posts): MAE=94.54
+   Current  (8,610 posts): MAE=51.82
+   Improvement: 45.2%
+   Dataset scale: 4.4x larger
+
+[SUCCESS] TARGET ACHIEVED! MAE < 60.0 (actual: 51.82)
+
+==========================================================================================
+                              SAVING MODELS
+==========================================================================================
+   Model 1 (baseline       ): multi_account_baseline_20251004_132502.pkl
+   Model 2 (baseline_bert  ): multi_account_baseline_bert_20251004_132502.pkl
+   Model 3 (full           ): multi_account_full_20251004_132502.pkl
+
+   [CHAMPION] champion_8610posts_20251004_132502.pkl
+      Type: Baseline
+      MAE: 51.82
+
+==========================================================================================
+                         CHAMPION FEATURE IMPORTANCE
+==========================================================================================
+
+[TOP 20] Most Important Features:
+    1. month                          0.210431
+    2. hashtag_count                  0.206256
+    3. caption_length                 0.197384
+    4. word_count                     0.164812
+    5. hour                           0.107199
+    6. day_of_week                    0.067109
+    7. mention_count                  0.035960
+    8. is_weekend                     0.008269
+    9. is_video                       0.002579
+
+==========================================================================================
+                                   SUMMARY
+==========================================================================================
+
+[DATASET]
+   Total posts: 8,610
+   Accounts: 8
+   Date range: 2015-03-21 10:50:25 to 2025-10-03 08:48:15
+
+[BEST MODEL]
+   Type: Baseline
+   Features: 9
+   MAE: 51.82 likes
+   RMSE: 168.88 likes
+   R²: 0.8159
+
+[PROGRESS]
+   Previous (1,949 posts): MAE=94.54
+   Current  (8,610 posts): MAE=51.82
+   Improvement: 45.2%
+
+[FILES]
+   Champion model: models\champion_8610posts_20251004_132502.pkl
+   All models saved to: models/ directory
+
+==========================================================================================
+                              TRAINING COMPLETE!
+==========================================================================================
+

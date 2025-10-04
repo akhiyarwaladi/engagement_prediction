@@ -1,0 +1,397 @@
+================================================================================
+ABLATION STUDY: Testing Feature Importance
+================================================================================
+
+[DATA] Loading dataset...
+  Loaded 271 posts
+
+[FEATURES] Creating feature groups...
+  Baseline: 6 features
+  Cyclic: 6 features
+  Lag: 6 features
+  BERT: 768 features
+  ViT: 768 features
+
+[EXPERIMENTS] Running 10 experiments...
+
+================================================================================
+EXPERIMENT 1/10: baseline_only
+================================================================================
+
+[EXPERIMENT] Starting: baseline_only_20251004_002405_e040529f
+  Description: Baseline features only
+  Tags: ablation, baseline
+
+[TRAIN] Training stacking_gb model...
+  Features: 6
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  Processed features: 6
+
+[FIT] Training model...
+  Training time: 1.9s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=179.58, R²=0.011
+  Test:  MAE=158.03, R²=-0.163
+  Model saved: models/baseline_only_20251004_002405_e040529f.pkl
+
+[RESULT] Experiment: baseline_only_20251004_002405_e040529f
+  Duration: 2.0s
+  train_mae: 179.5799
+  test_mae: 158.0337
+  train_r2: 0.0107
+  test_r2: -0.1633
+  train_rmse: 424.9673
+  test_rmse: 290.0048
+  train_time: 1.8895
+  Model saved: models/baseline_only_20251004_002405_e040529f.pkl
+
+================================================================================
+EXPERIMENT 2/10: baseline_cyclic
+================================================================================
+
+[EXPERIMENT] Starting: baseline_cyclic_20251004_002407_348fd741
+  Description: Baseline + Cyclic temporal
+  Tags: ablation, temporal
+
+[TRAIN] Training stacking_gb model...
+  Features: 12
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  Processed features: 12
+
+[FIT] Training model...
+  Training time: 1.9s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=160.15, R²=0.113
+  Test:  MAE=149.24, R²=-0.059
+  Model saved: models/baseline_cyclic_20251004_002407_348fd741.pkl
+
+[RESULT] Experiment: baseline_cyclic_20251004_002407_348fd741
+  Duration: 2.0s
+  train_mae: 160.1467
+  test_mae: 149.2359
+  train_r2: 0.1134
+  test_r2: -0.0594
+  train_rmse: 402.3081
+  test_rmse: 276.7424
+  train_time: 1.8557
+  Model saved: models/baseline_cyclic_20251004_002407_348fd741.pkl
+
+================================================================================
+EXPERIMENT 3/10: baseline_cyclic_lag
+================================================================================
+
+[EXPERIMENT] Starting: baseline_cyclic_lag_20251004_002409_e9062756
+  Description: Baseline + Cyclic + Lag
+  Tags: ablation, temporal, lag
+
+[TRAIN] Training stacking_gb model...
+  Features: 18
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  Processed features: 18
+
+[FIT] Training model...
+  Training time: 1.9s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=128.33, R²=0.091
+  Test:  MAE=125.69, R²=0.073
+  Model saved: models/baseline_cyclic_lag_20251004_002409_e9062756.pkl
+
+[RESULT] Experiment: baseline_cyclic_lag_20251004_002409_e9062756
+  Duration: 2.1s
+  train_mae: 128.3323
+  test_mae: 125.6934
+  train_r2: 0.0911
+  test_r2: 0.0730
+  train_rmse: 407.3484
+  test_rmse: 258.8818
+  train_time: 1.8925
+  Model saved: models/baseline_cyclic_lag_20251004_002409_e9062756.pkl
+
+================================================================================
+EXPERIMENT 4/10: baseline_bert_nopca
+================================================================================
+
+[EXPERIMENT] Starting: baseline_bert_nopca_20251004_002411_675e6960
+  Description: Baseline + BERT (768-dim, no PCA)
+  Tags: ablation, bert, nopca
+
+[TRAIN] Training stacking_gb model...
+  Features: 774
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  Processed features: 774
+
+[FIT] Training model...
+  Training time: 22.3s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=123.63, R²=0.387
+  Test:  MAE=209.56, R²=-0.734
+  Model saved: models/baseline_bert_nopca_20251004_002411_675e6960.pkl
+
+[RESULT] Experiment: baseline_bert_nopca_20251004_002411_675e6960
+  Duration: 22.9s
+  train_mae: 123.6256
+  test_mae: 209.5611
+  train_r2: 0.3866
+  test_r2: -0.7336
+  train_rmse: 334.6469
+  test_rmse: 354.0213
+  train_time: 22.3352
+  Model saved: models/baseline_bert_nopca_20251004_002411_675e6960.pkl
+
+================================================================================
+EXPERIMENT 5/10: baseline_bert_pca50
+================================================================================
+
+[EXPERIMENT] Starting: baseline_bert_pca50_20251004_002434_af3acfc2
+  Description: Baseline + BERT (PCA 50)
+  Tags: ablation, bert, pca50
+
+[TRAIN] Training stacking_gb model...
+  Features: 774
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA bert_: 768 -> 50 (96.0% variance)
+  Processed features: 56
+
+[FIT] Training model...
+  Training time: 3.2s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=129.94, R²=0.398
+  Test:  MAE=217.43, R²=-0.850
+  Model saved: models/baseline_bert_pca50_20251004_002434_af3acfc2.pkl
+
+[RESULT] Experiment: baseline_bert_pca50_20251004_002434_af3acfc2
+  Duration: 3.6s
+  train_mae: 129.9415
+  test_mae: 217.4290
+  train_r2: 0.3982
+  test_r2: -0.8497
+  train_rmse: 331.4666
+  test_rmse: 365.6828
+  train_time: 3.2339
+  Model saved: models/baseline_bert_pca50_20251004_002434_af3acfc2.pkl
+
+================================================================================
+EXPERIMENT 6/10: baseline_bert_pca100
+================================================================================
+
+[EXPERIMENT] Starting: baseline_bert_pca100_20251004_002438_3a4e9758
+  Description: Baseline + BERT (PCA 100)
+  Tags: ablation, bert, pca100
+
+[TRAIN] Training stacking_gb model...
+  Features: 774
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA bert_: 768 -> 100 (99.7% variance)
+  Processed features: 106
+
+[FIT] Training model...
+  Training time: 3.9s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=120.69, R²=0.346
+  Test:  MAE=194.45, R²=-0.155
+  Model saved: models/baseline_bert_pca100_20251004_002438_3a4e9758.pkl
+
+[RESULT] Experiment: baseline_bert_pca100_20251004_002438_3a4e9758
+  Duration: 4.3s
+  train_mae: 120.6900
+  test_mae: 194.4461
+  train_r2: 0.3465
+  test_r2: -0.1553
+  train_rmse: 345.4057
+  test_rmse: 289.0037
+  train_time: 3.8858
+  Model saved: models/baseline_bert_pca100_20251004_002438_3a4e9758.pkl
+
+================================================================================
+EXPERIMENT 7/10: baseline_vit_pca50
+================================================================================
+
+[EXPERIMENT] Starting: baseline_vit_pca50_20251004_002442_ac615a0e
+  Description: Baseline + ViT (PCA 50)
+  Tags: ablation, vit, pca50
+
+[TRAIN] Training stacking_gb model...
+  Features: 774
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA vit_: 768 -> 50 (nan% variance)
+  Processed features: 56
+
+[FIT] Training model...
+  Training time: 2.8s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=157.47, R²=0.134
+  Test:  MAE=146.78, R²=-0.124
+  Model saved: models/baseline_vit_pca50_20251004_002442_ac615a0e.pkl
+
+[RESULT] Experiment: baseline_vit_pca50_20251004_002442_ac615a0e
+  Duration: 3.1s
+  train_mae: 157.4650
+  test_mae: 146.7814
+  train_r2: 0.1337
+  test_r2: -0.1235
+  train_rmse: 397.6716
+  test_rmse: 284.9973
+  train_time: 2.7737
+  Model saved: models/baseline_vit_pca50_20251004_002442_ac615a0e.pkl
+
+================================================================================
+EXPERIMENT 8/10: temporal_bert
+================================================================================
+
+[EXPERIMENT] Starting: temporal_bert_20251004_002445_8ead74a6
+  Description: Temporal + BERT
+  Tags: ablation, temporal, bert
+
+[TRAIN] Training stacking_gb model...
+  Features: 786
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA bert_: 768 -> 100 (99.7% variance)
+  Processed features: 118
+
+[FIT] Training model...
+  Training time: 3.8s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=120.29, R²=0.531
+  Test:  MAE=170.42, R²=-0.207
+  Model saved: models/temporal_bert_20251004_002445_8ead74a6.pkl
+
+[RESULT] Experiment: temporal_bert_20251004_002445_8ead74a6
+  Duration: 4.3s
+  train_mae: 120.2944
+  test_mae: 170.4200
+  train_r2: 0.5310
+  test_r2: -0.2070
+  train_rmse: 292.6187
+  test_rmse: 295.3986
+  train_time: 3.7978
+  Model saved: models/temporal_bert_20251004_002445_8ead74a6.pkl
+
+================================================================================
+EXPERIMENT 9/10: temporal_vit
+================================================================================
+
+[EXPERIMENT] Starting: temporal_vit_20251004_002450_10495af3
+  Description: Temporal + ViT
+  Tags: ablation, temporal, vit
+
+[TRAIN] Training stacking_gb model...
+  Features: 786
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA vit_: 768 -> 100 (nan% variance)
+  Processed features: 118
+
+[FIT] Training model...
+  Training time: 2.9s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=125.78, R²=0.172
+  Test:  MAE=126.53, R²=0.130
+  Model saved: models/temporal_vit_20251004_002450_10495af3.pkl
+
+[RESULT] Experiment: temporal_vit_20251004_002450_10495af3
+  Duration: 3.3s
+  train_mae: 125.7771
+  test_mae: 126.5299
+  train_r2: 0.1723
+  test_r2: 0.1300
+  train_rmse: 388.7206
+  test_rmse: 250.7904
+  train_time: 2.9143
+  Model saved: models/temporal_vit_20251004_002450_10495af3.pkl
+
+================================================================================
+EXPERIMENT 10/10: full_model
+================================================================================
+
+[EXPERIMENT] Starting: full_model_20251004_002453_91a8683d
+  Description: All features (Baseline + Temporal + BERT + ViT)
+  Tags: ablation, full, best
+
+[TRAIN] Training stacking_gb model...
+  Features: 1554
+  Samples: 271
+  Train: 216, Test: 55
+
+[PREPROCESS] Applying transformations...
+  PCA bert_: 768 -> 100 (99.7% variance)
+  PCA vit_: 768 -> 100 (nan% variance)
+  Processed features: 218
+
+[FIT] Training model...
+  Training time: 8.2s
+
+[EVALUATE] Computing metrics...
+  Train: MAE=106.58, R²=0.542
+  Test:  MAE=170.08, R²=-0.223
+  Model saved: models/full_model_20251004_002453_91a8683d.pkl
+
+[RESULT] Experiment: full_model_20251004_002453_91a8683d
+  Duration: 8.9s
+  train_mae: 106.5794
+  test_mae: 170.0756
+  train_r2: 0.5420
+  test_r2: -0.2229
+  train_rmse: 289.1686
+  test_rmse: 297.3311
+  train_time: 8.2102
+  Model saved: models/full_model_20251004_002453_91a8683d.pkl
+
+================================================================================
+ABLATION STUDY COMPLETE
+================================================================================
+
+================================================================================
+EXPERIMENT SUMMARY
+================================================================================
+
+Total experiments: 10
+
+[BEST MAE] baseline_cyclic_lag_20251004_002409_e9062756
+  MAE: 125.69
+  R²: 0.073
+
+[BEST R²] temporal_vit_20251004_002450_10495af3
+  R²: 0.130
+  MAE: 126.53
+
+[RECENT] Last 5 experiments:
+  full_model_20251004_002453_91a  MAE=170.08  R²=-0.223
+  temporal_bert_20251004_002445_  MAE=170.42  R²=-0.207
+  baseline_bert_pca100_20251004_  MAE=194.45  R²=-0.155
+  baseline_bert_nopca_20251004_0  MAE=209.56  R²=-0.734
+  baseline_bert_pca50_20251004_0  MAE=217.43  R²=-0.850

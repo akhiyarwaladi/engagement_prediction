@@ -1,0 +1,78 @@
+==========================================================================================
+                    PHASE 6: GBM ULTRA MODEL (FIXED)
+               Validating Phase 5.1 with Clean Data Merge
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Main: 8610 posts
+   BERT (raw): 8610 posts
+   Aesthetic (raw): 8198 posts
+
+[DEDUPLICATE] Removing duplicates from feature files...
+   BERT: 8610 -> 3866 (4744 duplicates removed)
+   Aesthetic: 8198 -> 3782 (4416 duplicates removed)
+
+[MERGE] Merging datasets...
+   After BERT merge: 8610 posts
+   After aesthetic merge: 8198 posts
+
+[FEATURES] Preparing feature matrices...
+   BERT features: 768
+   Aesthetic features: 8
+
+[SPLIT] Creating train/test split...
+   Train: 6558 posts
+   Test: 1640 posts
+
+[PCA] Applying BERT PCA-150...
+   BERT: 768 -> 150 dims (95.7% variance)
+   Total features: 167
+
+[PREPROCESS] Outlier clipping and scaling...
+   Clipping at 1870 likes (99th percentile)
+
+==========================================================================================
+                         TRAINING GBM MODEL
+==========================================================================================
+
+[RESULTS]
+   MAE:  57.97 likes
+   RMSE: 229.53 likes
+   R2:   0.6494
+
+[SAVE] Saving production model...
+   Model: models/phase6_gbm_fixed_20251004_155944.pkl
+   Size: 6.4 MB
+
+[IMPORTANCE] Top 15 features:
+    1. hashtag_count                  0.084623
+    2. bert_pca_2                     0.071052
+    3. aes_5                          0.068096
+    4. month                          0.051672
+    5. bert_pca_6                     0.042849
+    6. aes_4                          0.028273
+    7. bert_pca_4                     0.023162
+    8. bert_pca_14                    0.021831
+    9. aes_0                          0.020318
+   10. aes_6                          0.019284
+   11. bert_pca_11                    0.015438
+   12. bert_pca_23                    0.014516
+   13. bert_pca_1                     0.012277
+   14. bert_pca_9                     0.011605
+   15. bert_pca_38                    0.011353
+
+==========================================================================================
+                    PERFORMANCE VS PREVIOUS PHASES
+==========================================================================================
+
+[COMPARISON]
+   Phase 5 Ultra (BERT PCA-70):  MAE = 27.23 likes
+   Phase 6 GBM (BERT PCA-150):   MAE = 57.97 likes
+   Change:                       -112.9%
+
+[STATUS] Phase 5.1's MAE=2.29 was on corrupted data (188K rows)
+         This is the TRUE performance on clean 8.6K dataset
+
+==========================================================================================
+                              COMPLETE!
+==========================================================================================

@@ -1,0 +1,94 @@
+==========================================================================================
+                    PHASE 5 ULTRA: FINAL CHAMPION MODEL TRAINING
+                         Configuration: Baseline + BERT PCA-70
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Main data: 8610 posts
+   BERT embeddings: 8610 posts
+
+[MERGE] Combined dataset: 34272 posts
+
+[FEATURES] Extracting features...
+   Baseline features: 9
+   BERT features: 768
+   Total posts: 34272
+
+[SPLIT] Creating train/test split...
+   Train: 27417 posts
+   Test: 6855 posts
+
+[PREPROCESS] Applying transformations...
+   Outlier clipping: 99th percentile = 2322 likes
+   Log transform: applied
+
+[PCA] Reducing BERT dimensions: 768 -> 70...
+   Variance explained: 91.6%
+
+[COMBINE] Merging Baseline + BERT PCA...
+   Total features: 79 (9 baseline + 70 BERT PCA)
+
+[SCALE] Quantile transformation to normal distribution...
+
+[TRAIN] Training Random Forest...
+   Configuration:
+      n_estimators: 250
+      max_depth: 14
+      min_samples_split: 3
+      min_samples_leaf: 2
+      max_features: sqrt
+   [OK] Training complete
+
+[PREDICT] Evaluating on test set...
+
+==========================================================================================
+                                   FINAL RESULTS
+==========================================================================================
+
+[PERFORMANCE]
+   MAE:  27.23 likes
+   RMSE: 89.36 likes
+   R²:   0.9234
+   Improvement vs mean: 85.3%
+
+[COMPARISON TO PREVIOUS BEST]
+   Previous best (Phase 4): MAE=51.82
+   Current (Phase 5 Ultra): MAE=27.23
+   Improvement: 47.4%
+
+   [SUCCESS] NEW ULTRA CHAMPION!
+
+[FEATURE IMPORTANCE]
+
+[TOP 20] Most Important Features:
+    1. bert_pca_2                     0.053589
+    2. month                          0.050971
+    3. hashtag_count                  0.041727
+    4. bert_pca_7                     0.036612
+    5. bert_pca_1                     0.033627
+    6. bert_pca_14                    0.030399
+    7. caption_length                 0.028427
+    8. bert_pca_4                     0.027699
+    9. bert_pca_0                     0.024949
+   10. word_count                     0.023559
+   11. bert_pca_22                    0.021498
+   12. bert_pca_6                     0.021466
+   13. bert_pca_30                    0.018947
+   14. bert_pca_35                    0.017052
+   15. bert_pca_5                     0.015783
+   16. bert_pca_41                    0.015654
+   17. bert_pca_33                    0.013904
+   18. bert_pca_17                    0.013563
+   19. bert_pca_25                    0.013491
+   20. bert_pca_12                    0.013154
+
+[IMPORTANCE BY TYPE]
+   Baseline features (9):     16.3%
+   BERT PCA features (70):    83.7%
+
+[SAVE] Saving model...
+   Saved to: models/phase5_ultra_model.pkl
+
+==========================================================================================
+                         PHASE 5 ULTRA MODEL COMPLETE!
+==========================================================================================

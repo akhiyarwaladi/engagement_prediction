@@ -1,0 +1,339 @@
+
+================================================================================
+                    MULTI-ACCOUNT BERT EXTRACTION
+               IndoBERT Embeddings for 1,579 Posts
+================================================================================
+
+[OK] PyTorch version: 2.5.1+cu121
+[OK] Device: CUDA GPU
+   GPU: NVIDIA GeForce RTX 3060
+
+[LOAD] Loading IndoBERT model...
+   (This may take a minute on first run)
+[OK] Loaded: indobenchmark/indobert-base-p1
+   Model parameters: ~110M
+[OK] Model ready on cuda
+
+[DATA] Loading multi-account dataset...
+   Loaded 8610 posts
+   fst_unja: 396 posts
+   univ.jambi: 1792 posts
+
+[BERT] Extracting BERT embeddings from captions...
+   This will take ~15-20 minutes on CPU, ~3-5 minutes on GPU
+
+  Progress: 32/8610 (0.4%)
+  Progress: 64/8610 (0.7%) | ETA: 2.8 min
+  Progress: 96/8610 (1.1%) | ETA: 2.2 min
+  Progress: 128/8610 (1.5%) | ETA: 1.9 min
+  Progress: 160/8610 (1.9%) | ETA: 1.7 min
+  Progress: 192/8610 (2.2%) | ETA: 1.6 min
+  Progress: 224/8610 (2.6%) | ETA: 1.5 min
+  Progress: 256/8610 (3.0%) | ETA: 1.4 min
+  Progress: 288/8610 (3.3%) | ETA: 1.4 min
+  Progress: 320/8610 (3.7%) | ETA: 1.3 min
+  Progress: 352/8610 (4.1%) | ETA: 1.3 min
+  Progress: 384/8610 (4.5%) | ETA: 1.3 min
+  Progress: 416/8610 (4.8%) | ETA: 1.2 min
+  Progress: 448/8610 (5.2%) | ETA: 1.2 min
+  Progress: 480/8610 (5.6%) | ETA: 1.2 min
+  Progress: 512/8610 (5.9%) | ETA: 1.2 min
+  Progress: 544/8610 (6.3%) | ETA: 1.2 min
+  Progress: 576/8610 (6.7%) | ETA: 1.1 min
+  Progress: 608/8610 (7.1%) | ETA: 1.1 min
+  Progress: 640/8610 (7.4%) | ETA: 1.1 min
+  Progress: 672/8610 (7.8%) | ETA: 1.1 min
+  Progress: 704/8610 (8.2%) | ETA: 1.1 min
+  Progress: 736/8610 (8.5%) | ETA: 1.1 min
+  Progress: 768/8610 (8.9%) | ETA: 1.1 min
+  Progress: 800/8610 (9.3%) | ETA: 1.1 min
+  Progress: 832/8610 (9.7%) | ETA: 1.0 min
+  Progress: 864/8610 (10.0%) | ETA: 1.0 min
+  Progress: 896/8610 (10.4%) | ETA: 1.0 min
+  Progress: 928/8610 (10.8%) | ETA: 1.0 min
+  Progress: 960/8610 (11.1%) | ETA: 1.0 min
+  Progress: 992/8610 (11.5%) | ETA: 1.0 min
+  Progress: 1024/8610 (11.9%) | ETA: 1.0 min
+  Progress: 1056/8610 (12.3%) | ETA: 1.0 min
+  Progress: 1088/8610 (12.6%) | ETA: 1.0 min
+  Progress: 1120/8610 (13.0%) | ETA: 1.0 min
+  Progress: 1152/8610 (13.4%) | ETA: 1.0 min
+  Progress: 1184/8610 (13.8%) | ETA: 1.0 min
+  Progress: 1216/8610 (14.1%) | ETA: 1.0 min
+  Progress: 1248/8610 (14.5%) | ETA: 0.9 min
+  Progress: 1280/8610 (14.9%) | ETA: 0.9 min
+  Progress: 1312/8610 (15.2%) | ETA: 0.9 min
+  Progress: 1344/8610 (15.6%) | ETA: 0.9 min
+  Progress: 1376/8610 (16.0%) | ETA: 0.9 min
+  Progress: 1408/8610 (16.4%) | ETA: 0.9 min
+  Progress: 1440/8610 (16.7%) | ETA: 0.9 min
+  Progress: 1472/8610 (17.1%) | ETA: 0.9 min
+  Progress: 1504/8610 (17.5%) | ETA: 0.9 min
+  Progress: 1536/8610 (17.8%) | ETA: 0.9 min
+  Progress: 1568/8610 (18.2%) | ETA: 0.9 min
+  Progress: 1600/8610 (18.6%) | ETA: 0.9 min
+  Progress: 1632/8610 (19.0%) | ETA: 0.9 min
+  Progress: 1664/8610 (19.3%) | ETA: 0.9 min
+  Progress: 1696/8610 (19.7%) | ETA: 0.9 min
+  Progress: 1728/8610 (20.1%) | ETA: 0.9 min
+  Progress: 1760/8610 (20.4%) | ETA: 0.9 min
+  Progress: 1792/8610 (20.8%) | ETA: 0.9 min
+  Progress: 1824/8610 (21.2%) | ETA: 0.9 min
+  Progress: 1856/8610 (21.6%) | ETA: 0.9 min
+  Progress: 1888/8610 (21.9%) | ETA: 0.8 min
+  Progress: 1920/8610 (22.3%) | ETA: 0.8 min
+  Progress: 1952/8610 (22.7%) | ETA: 0.8 min
+  Progress: 1984/8610 (23.0%) | ETA: 0.8 min
+  Progress: 2016/8610 (23.4%) | ETA: 0.8 min
+  Progress: 2048/8610 (23.8%) | ETA: 0.8 min
+  Progress: 2080/8610 (24.2%) | ETA: 0.8 min
+  Progress: 2112/8610 (24.5%) | ETA: 0.8 min
+  Progress: 2144/8610 (24.9%) | ETA: 0.8 min
+  Progress: 2176/8610 (25.3%) | ETA: 0.8 min
+  Progress: 2208/8610 (25.6%) | ETA: 0.8 min
+  Progress: 2240/8610 (26.0%) | ETA: 0.8 min
+  Progress: 2272/8610 (26.4%) | ETA: 0.8 min
+  Progress: 2304/8610 (26.8%) | ETA: 0.8 min
+  Progress: 2336/8610 (27.1%) | ETA: 0.8 min
+  Progress: 2368/8610 (27.5%) | ETA: 0.8 min
+  Progress: 2400/8610 (27.9%) | ETA: 0.8 min
+  Progress: 2432/8610 (28.2%) | ETA: 0.8 min
+  Progress: 2464/8610 (28.6%) | ETA: 0.8 min
+  Progress: 2496/8610 (29.0%) | ETA: 0.7 min
+  Progress: 2528/8610 (29.4%) | ETA: 0.7 min
+  Progress: 2560/8610 (29.7%) | ETA: 0.7 min
+  Progress: 2592/8610 (30.1%) | ETA: 0.7 min
+  Progress: 2624/8610 (30.5%) | ETA: 0.7 min
+  Progress: 2656/8610 (30.8%) | ETA: 0.7 min
+  Progress: 2688/8610 (31.2%) | ETA: 0.7 min
+  Progress: 2720/8610 (31.6%) | ETA: 0.7 min
+  Progress: 2752/8610 (32.0%) | ETA: 0.7 min
+  Progress: 2784/8610 (32.3%) | ETA: 0.7 min
+  Progress: 2816/8610 (32.7%) | ETA: 0.7 min
+  Progress: 2848/8610 (33.1%) | ETA: 0.7 min
+  Progress: 2880/8610 (33.4%) | ETA: 0.7 min
+  Progress: 2912/8610 (33.8%) | ETA: 0.7 min
+  Progress: 2944/8610 (34.2%) | ETA: 0.7 min
+  Progress: 2976/8610 (34.6%) | ETA: 0.7 min
+  Progress: 3008/8610 (34.9%) | ETA: 0.7 min
+  Progress: 3040/8610 (35.3%) | ETA: 0.7 min
+  Progress: 3072/8610 (35.7%) | ETA: 0.7 min
+  Progress: 3104/8610 (36.1%) | ETA: 0.7 min
+  Progress: 3136/8610 (36.4%) | ETA: 0.6 min
+  Progress: 3168/8610 (36.8%) | ETA: 0.6 min
+  Progress: 3200/8610 (37.2%) | ETA: 0.6 min
+  Progress: 3232/8610 (37.5%) | ETA: 0.6 min
+  Progress: 3264/8610 (37.9%) | ETA: 0.6 min
+  Progress: 3296/8610 (38.3%) | ETA: 0.6 min
+  Progress: 3328/8610 (38.7%) | ETA: 0.6 min
+  Progress: 3360/8610 (39.0%) | ETA: 0.6 min
+  Progress: 3392/8610 (39.4%) | ETA: 0.6 min
+  Progress: 3424/8610 (39.8%) | ETA: 0.6 min
+  Progress: 3456/8610 (40.1%) | ETA: 0.6 min
+  Progress: 3488/8610 (40.5%) | ETA: 0.6 min
+  Progress: 3520/8610 (40.9%) | ETA: 0.6 min
+  Progress: 3552/8610 (41.3%) | ETA: 0.6 min
+  Progress: 3584/8610 (41.6%) | ETA: 0.6 min
+  Progress: 3616/8610 (42.0%) | ETA: 0.6 min
+  Progress: 3648/8610 (42.4%) | ETA: 0.6 min
+  Progress: 3680/8610 (42.7%) | ETA: 0.6 min
+  Progress: 3712/8610 (43.1%) | ETA: 0.6 min
+  Progress: 3744/8610 (43.5%) | ETA: 0.6 min
+  Progress: 3776/8610 (43.9%) | ETA: 0.6 min
+  Progress: 3808/8610 (44.2%) | ETA: 0.6 min
+  Progress: 3840/8610 (44.6%) | ETA: 0.6 min
+  Progress: 3872/8610 (45.0%) | ETA: 0.6 min
+  Progress: 3904/8610 (45.3%) | ETA: 0.6 min
+  Progress: 3936/8610 (45.7%) | ETA: 0.5 min
+  Progress: 3968/8610 (46.1%) | ETA: 0.5 min
+  Progress: 4000/8610 (46.5%) | ETA: 0.5 min
+  Progress: 4032/8610 (46.8%) | ETA: 0.5 min
+  Progress: 4064/8610 (47.2%) | ETA: 0.5 min
+  Progress: 4096/8610 (47.6%) | ETA: 0.5 min
+  Progress: 4128/8610 (47.9%) | ETA: 0.5 min
+  Progress: 4160/8610 (48.3%) | ETA: 0.5 min
+  Progress: 4192/8610 (48.7%) | ETA: 0.5 min
+  Progress: 4224/8610 (49.1%) | ETA: 0.5 min
+  Progress: 4256/8610 (49.4%) | ETA: 0.5 min
+  Progress: 4288/8610 (49.8%) | ETA: 0.5 min
+  Progress: 4320/8610 (50.2%) | ETA: 0.5 min
+  Progress: 4352/8610 (50.5%) | ETA: 0.5 min
+  Progress: 4384/8610 (50.9%) | ETA: 0.5 min
+  Progress: 4416/8610 (51.3%) | ETA: 0.5 min
+  Progress: 4448/8610 (51.7%) | ETA: 0.5 min
+  Progress: 4480/8610 (52.0%) | ETA: 0.5 min
+  Progress: 4512/8610 (52.4%) | ETA: 0.5 min
+  Progress: 4544/8610 (52.8%) | ETA: 0.5 min
+  Progress: 4576/8610 (53.1%) | ETA: 0.5 min
+  Progress: 4608/8610 (53.5%) | ETA: 0.5 min
+  Progress: 4640/8610 (53.9%) | ETA: 0.5 min
+  Progress: 4672/8610 (54.3%) | ETA: 0.5 min
+  Progress: 4704/8610 (54.6%) | ETA: 0.5 min
+  Progress: 4736/8610 (55.0%) | ETA: 0.4 min
+  Progress: 4768/8610 (55.4%) | ETA: 0.4 min
+  Progress: 4800/8610 (55.7%) | ETA: 0.4 min
+  Progress: 4832/8610 (56.1%) | ETA: 0.4 min
+  Progress: 4864/8610 (56.5%) | ETA: 0.4 min
+  Progress: 4896/8610 (56.9%) | ETA: 0.4 min
+  Progress: 4928/8610 (57.2%) | ETA: 0.4 min
+  Progress: 4960/8610 (57.6%) | ETA: 0.4 min
+  Progress: 4992/8610 (58.0%) | ETA: 0.4 min
+  Progress: 5024/8610 (58.4%) | ETA: 0.4 min
+  Progress: 5056/8610 (58.7%) | ETA: 0.4 min
+  Progress: 5088/8610 (59.1%) | ETA: 0.4 min
+  Progress: 5120/8610 (59.5%) | ETA: 0.4 min
+  Progress: 5152/8610 (59.8%) | ETA: 0.4 min
+  Progress: 5184/8610 (60.2%) | ETA: 0.4 min
+  Progress: 5216/8610 (60.6%) | ETA: 0.4 min
+  Progress: 5248/8610 (61.0%) | ETA: 0.4 min
+  Progress: 5280/8610 (61.3%) | ETA: 0.4 min
+  Progress: 5312/8610 (61.7%) | ETA: 0.4 min
+  Progress: 5344/8610 (62.1%) | ETA: 0.4 min
+  Progress: 5376/8610 (62.4%) | ETA: 0.4 min
+  Progress: 5408/8610 (62.8%) | ETA: 0.4 min
+  Progress: 5440/8610 (63.2%) | ETA: 0.4 min
+  Progress: 5472/8610 (63.6%) | ETA: 0.4 min
+  Progress: 5504/8610 (63.9%) | ETA: 0.4 min
+  Progress: 5536/8610 (64.3%) | ETA: 0.4 min
+  Progress: 5568/8610 (64.7%) | ETA: 0.4 min
+  Progress: 5600/8610 (65.0%) | ETA: 0.3 min
+  Progress: 5632/8610 (65.4%) | ETA: 0.3 min
+  Progress: 5664/8610 (65.8%) | ETA: 0.3 min
+  Progress: 5696/8610 (66.2%) | ETA: 0.3 min
+  Progress: 5728/8610 (66.5%) | ETA: 0.3 min
+  Progress: 5760/8610 (66.9%) | ETA: 0.3 min
+  Progress: 5792/8610 (67.3%) | ETA: 0.3 min
+  Progress: 5824/8610 (67.6%) | ETA: 0.3 min
+  Progress: 5856/8610 (68.0%) | ETA: 0.3 min
+  Progress: 5888/8610 (68.4%) | ETA: 0.3 min
+  Progress: 5920/8610 (68.8%) | ETA: 0.3 min
+  Progress: 5952/8610 (69.1%) | ETA: 0.3 min
+  Progress: 5984/8610 (69.5%) | ETA: 0.3 min
+  Progress: 6016/8610 (69.9%) | ETA: 0.3 min
+  Progress: 6048/8610 (70.2%) | ETA: 0.3 min
+  Progress: 6080/8610 (70.6%) | ETA: 0.3 min
+  Progress: 6112/8610 (71.0%) | ETA: 0.3 min
+  Progress: 6144/8610 (71.4%) | ETA: 0.3 min
+  Progress: 6176/8610 (71.7%) | ETA: 0.3 min
+  Progress: 6208/8610 (72.1%) | ETA: 0.3 min
+  Progress: 6240/8610 (72.5%) | ETA: 0.3 min
+  Progress: 6272/8610 (72.8%) | ETA: 0.3 min
+  Progress: 6304/8610 (73.2%) | ETA: 0.3 min
+  Progress: 6336/8610 (73.6%) | ETA: 0.3 min
+  Progress: 6368/8610 (74.0%) | ETA: 0.3 min
+  Progress: 6400/8610 (74.3%) | ETA: 0.3 min
+  Progress: 6432/8610 (74.7%) | ETA: 0.3 min
+  Progress: 6464/8610 (75.1%) | ETA: 0.2 min
+  Progress: 6496/8610 (75.4%) | ETA: 0.2 min
+  Progress: 6528/8610 (75.8%) | ETA: 0.2 min
+  Progress: 6560/8610 (76.2%) | ETA: 0.2 min
+  Progress: 6592/8610 (76.6%) | ETA: 0.2 min
+  Progress: 6624/8610 (76.9%) | ETA: 0.2 min
+  Progress: 6656/8610 (77.3%) | ETA: 0.2 min
+  Progress: 6688/8610 (77.7%) | ETA: 0.2 min
+  Progress: 6720/8610 (78.0%) | ETA: 0.2 min
+  Progress: 6752/8610 (78.4%) | ETA: 0.2 min
+  Progress: 6784/8610 (78.8%) | ETA: 0.2 min
+  Progress: 6816/8610 (79.2%) | ETA: 0.2 min
+  Progress: 6848/8610 (79.5%) | ETA: 0.2 min
+  Progress: 6880/8610 (79.9%) | ETA: 0.2 min
+  Progress: 6912/8610 (80.3%) | ETA: 0.2 min
+  Progress: 6944/8610 (80.7%) | ETA: 0.2 min
+  Progress: 6976/8610 (81.0%) | ETA: 0.2 min
+  Progress: 7008/8610 (81.4%) | ETA: 0.2 min
+  Progress: 7040/8610 (81.8%) | ETA: 0.2 min
+  Progress: 7072/8610 (82.1%) | ETA: 0.2 min
+  Progress: 7104/8610 (82.5%) | ETA: 0.2 min
+  Progress: 7136/8610 (82.9%) | ETA: 0.2 min
+  Progress: 7168/8610 (83.3%) | ETA: 0.2 min
+  Progress: 7200/8610 (83.6%) | ETA: 0.2 min
+  Progress: 7232/8610 (84.0%) | ETA: 0.2 min
+  Progress: 7264/8610 (84.4%) | ETA: 0.2 min
+  Progress: 7296/8610 (84.7%) | ETA: 0.2 min
+  Progress: 7328/8610 (85.1%) | ETA: 0.1 min
+  Progress: 7360/8610 (85.5%) | ETA: 0.1 min
+  Progress: 7392/8610 (85.9%) | ETA: 0.1 min
+  Progress: 7424/8610 (86.2%) | ETA: 0.1 min
+  Progress: 7456/8610 (86.6%) | ETA: 0.1 min
+  Progress: 7488/8610 (87.0%) | ETA: 0.1 min
+  Progress: 7520/8610 (87.3%) | ETA: 0.1 min
+  Progress: 7552/8610 (87.7%) | ETA: 0.1 min
+  Progress: 7584/8610 (88.1%) | ETA: 0.1 min
+  Progress: 7616/8610 (88.5%) | ETA: 0.1 min
+  Progress: 7648/8610 (88.8%) | ETA: 0.1 min
+  Progress: 7680/8610 (89.2%) | ETA: 0.1 min
+  Progress: 7712/8610 (89.6%) | ETA: 0.1 min
+  Progress: 7744/8610 (89.9%) | ETA: 0.1 min
+  Progress: 7776/8610 (90.3%) | ETA: 0.1 min
+  Progress: 7808/8610 (90.7%) | ETA: 0.1 min
+  Progress: 7840/8610 (91.1%) | ETA: 0.1 min
+  Progress: 7872/8610 (91.4%) | ETA: 0.1 min
+  Progress: 7904/8610 (91.8%) | ETA: 0.1 min
+  Progress: 7936/8610 (92.2%) | ETA: 0.1 min
+  Progress: 7968/8610 (92.5%) | ETA: 0.1 min
+  Progress: 8000/8610 (92.9%) | ETA: 0.1 min
+  Progress: 8032/8610 (93.3%) | ETA: 0.1 min
+  Progress: 8064/8610 (93.7%) | ETA: 0.1 min
+  Progress: 8096/8610 (94.0%) | ETA: 0.1 min
+  Progress: 8128/8610 (94.4%) | ETA: 0.1 min
+  Progress: 8160/8610 (94.8%) | ETA: 0.1 min
+  Progress: 8192/8610 (95.1%) | ETA: 0.0 min
+  Progress: 8224/8610 (95.5%) | ETA: 0.0 min
+  Progress: 8256/8610 (95.9%) | ETA: 0.0 min
+  Progress: 8288/8610 (96.3%) | ETA: 0.0 min
+  Progress: 8320/8610 (96.6%) | ETA: 0.0 min
+  Progress: 8352/8610 (97.0%) | ETA: 0.0 min
+  Progress: 8384/8610 (97.4%) | ETA: 0.0 min
+  Progress: 8416/8610 (97.7%) | ETA: 0.0 min
+  Progress: 8448/8610 (98.1%) | ETA: 0.0 min
+  Progress: 8480/8610 (98.5%) | ETA: 0.0 min
+  Progress: 8512/8610 (98.9%) | ETA: 0.0 min
+  Progress: 8544/8610 (99.2%) | ETA: 0.0 min
+  Progress: 8576/8610 (99.6%) | ETA: 0.0 min
+  Progress: 8608/8610 (100.0%) | ETA: 0.0 min
+  Progress: 8610/8610 (100.0%) | ETA: 0.0 min
+
+[TIME] Total extraction time: 1.00 minutes
+
+[STATS] Creating feature DataFrame...
+[SAVE] Saved to: data/processed/bert_embeddings_multi_account.csv
+
+[INFO] Embedding Statistics:
+   Shape: (8610, 771)
+   Dimensions: 768
+   Total posts: 8610
+   fst_unja posts: 396
+   univ.jambi posts: 1792
+
+[SAMPLE] Sample embeddings (first 5 dimensions):
+    account  ... bert_dim_4
+0  fst_unja  ...   2.375946
+1  fst_unja  ...   2.474881
+2  fst_unja  ...   2.474881
+
+[3 rows x 7 columns]
+
+[CHECK] Quality Check:
+   Average embedding norm: 26.71
+   Expected range: 8-15 (typical for BERT)
+   [WARN] Warning: Embedding norms unusually high
+   Average std per dimension: 0.538
+   Expected range: 0.3-1.0
+   [OK] Good variability across embeddings!
+
+================================================================================
+EXTRACTION COMPLETE! [DONE]
+================================================================================
+
+[OK] Extracted 768-dimensional IndoBERT embeddings for 8610 posts
+[OK] Saved to data/processed/bert_embeddings_multi_account.csv
+[OK] File size: 120.62 MB
+
+[NEXT] Next steps:
+   1. Extract NIMA aesthetic features
+   2. Train model with new dataset (1,579 posts vs 348)
+   3. Expected: MAE < 120 (vs 135.21 previous)
+
+
+================================================================================
+

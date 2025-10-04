@@ -1,0 +1,104 @@
+==========================================================================================
+               PHASE 9: MULTIMODAL STACKING (VISUAL + TEXT)
+          Apply Phase 8 Stacking with BOTH Visual and Text Features
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Main: 8610 posts
+   BERT: 3866 unique
+   Aesthetic: 3782 unique
+   Combined: 8198 posts (BOTH visual + text)
+
+[FEATURES]
+   Baseline: 9
+   BERT (text): 768
+   Aesthetic (visual): 8
+
+   Train: 6558 | Test: 1640
+
+[PCA] Reducing dimensionality...
+   Testing aesthetic PCA dimensions:
+      Aes PCA=4 (100.0% var): MAE=58.96
+      Aes PCA=5 (100.0% var): MAE=58.72
+      Aes PCA=6 (100.0% var): MAE=58.33
+      Aes PCA=7 (100.0% var): MAE=59.34
+      Aes PCA=8 (100.0% var): MAE=58.54
+
+   Best aesthetic PCA: 6 components (MAE=58.33)
+
+[COMBINED] Total features: 65
+   Baseline: 9
+   BERT PCA: 50
+   Aesthetic PCA: 6
+
+==========================================================================================
+                         STACKING ENSEMBLE
+==========================================================================================
+
+[STACK] Training base models with K-Fold blending...
+   GBM...
+   HGB...
+   RF...
+   ET...
+
+[TEST] Testing meta-learners:
+   Ridge 0.1           : MAE= 45.14, R2=0.7107
+   Ridge 1.0           : MAE= 45.14, R2=0.7107
+   Ridge 10            : MAE= 45.10, R2=0.7113
+   Ridge 50            : MAE= 45.15, R2=0.7131
+   Lasso 0.01          : MAE= 45.34, R2=0.7131
+   Lasso 0.1           : MAE= 54.23, R2=0.6646
+   ElasticNet 0.1      : MAE= 50.28, R2=0.6858
+
+[BEST STACK] Ridge 10: MAE=45.10
+
+==========================================================================================
+                    MULTIMODAL vs TEXT-ONLY COMPARISON
+==========================================================================================
+
+[RESULTS]
+   Phase 8 (text-only, 8,610 posts):    MAE = 48.41 likes
+   Phase 9 (multimodal, 8198 posts):    MAE = 45.10 likes
+
+   NEW CHAMPION! Multimodal improved by 6.8%
+   Visual features contributed to improvement!
+
+[DATASET COMPARISON]
+   Phase 8: 8,610 posts (NO aesthetic)
+   Phase 9: 8198 posts (WITH aesthetic)
+   Lost posts: 412 (4.8%)
+
+==========================================================================================
+                    FEATURE CONTRIBUTION ANALYSIS
+==========================================================================================
+
+[MODALITY BREAKDOWN]
+   Baseline:            20.1%
+   BERT (text):         65.4%
+   Aesthetic (visual):  14.5%
+
+[TOP 10 FEATURES]
+    1. hashtag_count             (baseline):  9.97%
+    2. month                     (baseline):  6.82%
+    3. bert_pca_2                (text    ):  6.32%
+    4. bert_pca_6                (text    ):  5.83%
+    5. aes_pca_4                 (visual  ):  3.33%
+    6. bert_pca_14               (text    ):  3.02%
+    7. aes_pca_0                 (visual  ):  2.96%
+    8. aes_pca_2                 (visual  ):  2.88%
+    9. bert_pca_4                (text    ):  2.60%
+   10. bert_pca_1                (text    ):  2.52%
+
+[SAVE] Saving Phase 9 multimodal model...
+   Model: models/phase9_multimodal_20251004_192649.pkl
+   Size: 180.6 MB
+
+==========================================================================================
+                            PHASE 9 COMPLETE!
+==========================================================================================
+
+[CONFIRMATION]
+   Visual features: INCLUDED (6 components)
+   Text features:   INCLUDED (50 BERT PCA)
+   Multimodal MAE:  45.10 likes
+

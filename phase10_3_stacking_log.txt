@@ -1,0 +1,27 @@
+==========================================================================================
+               PHASE 10.3: DEEP STACKING (MORE BASE MODELS)
+                    Target: Beat Phase 9 MAE=45.10
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8198 posts (BOTH visual + text)
+
+[FEATURES] 65 total (9 baseline + 50 BERT + 6 aesthetic)
+
+[EXPERIMENT] Testing different base model combinations...
+
+   Testing: 4 models (Phase 9)...
+      Best meta: Ridge 10, MAE=45.28, R2=0.6841
+   Testing: 6 models...
+      Best meta: Ridge 10, MAE=45.37, R2=0.6830
+   Testing: 7 models...
+      Best meta: Lasso 0.01, MAE=45.73, R2=0.6830
+
+[BEST STACKING] 4 models (Phase 9): MAE=45.28
+
+==========================================================================================
+                              PHASE 10.3 COMPLETE!
+==========================================================================================
+
+[RESULT] MAE=45.28 (Phase 9 was 45.10)
+   More base models did not improve (4 models remains optimal)

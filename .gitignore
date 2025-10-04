@@ -1,13 +1,20 @@
-# Virtual Environment
+# Large files excluded from Git
+
+# Large model files (>100MB)
+models/phase9_multimodal_*.pkl
+models/phase5_1_advanced_model.pkl
+
+# Large data files
+data/processed/bert_embeddings_multi_account.csv
+
+# Sensitive data
+cookies.txt
+
+# Python
+__pycache__/
+*.py[cod]
 venv/
 
-# Downloaded Posts
-gallery-dl/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-
-# Log files
+# Logs
 *.log
+

@@ -2,14 +2,11 @@
     "extractor": {
         "instagram": {
             "include": "posts",
-            "metadata": true,
             "videos": true,
             "video-thumbnails": false,
-            "image-filter": "username == 'fst_unja'",
-            "sleep-request": [2.0, 4.0]
+            "sleep-request": [5.0, 10.0],
+            "username": "akhiyarwaladi",
+            "password": "Rickss12!"
         }
-    },
-    "output": {
-        "directory": ["./gallery-dl/instagram/{username}/"]
     }
 }

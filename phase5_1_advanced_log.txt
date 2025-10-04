@@ -1,0 +1,132 @@
+==========================================================================================
+                    PHASE 5.1: ADVANCED MULTIMODAL OPTIMIZATION
+               Visual (Aesthetic) + Text (BERT) + Baseline Features
+==========================================================================================
+
+[LOAD] Loading datasets...
+   Total posts: 188130
+   BERT features: 768
+   Aesthetic features: 8
+
+[FEATURES] Preparing feature matrices...
+   Train: 150504, Test: 37626
+
+==========================================================================================
+                    EXPERIMENT 1: PCA DIMENSIONALITY COMBINATIONS
+==========================================================================================
+
+[TEST] Testing BERT PCA + Aesthetic combinations:
+   BERT-PCA( 30, 85.4%)            : MAE= 13.95, R2=0.9813, Features=39
+   BERT-PCA( 30, 85.4%)+Aesthetic  : MAE= 13.15, R2=0.9817, Features=47
+   BERT-PCA( 50, 90.5%)            : MAE= 12.76, R2=0.9839, Features=59
+   BERT-PCA( 50, 90.5%)+Aesthetic  : MAE= 12.78, R2=0.9831, Features=67
+   BERT-PCA( 70, 93.2%)            : MAE= 12.13, R2=0.9834, Features=79
+   BERT-PCA( 70, 93.2%)+Aesthetic  : MAE= 12.14, R2=0.9833, Features=87
+   BERT-PCA(100, 95.6%)            : MAE= 12.10, R2=0.9835, Features=109
+   BERT-PCA(100, 95.6%)+Aesthetic  : MAE= 11.54, R2=0.9840, Features=117
+   BERT-PCA(150, 97.5%)            : MAE= 10.57, R2=0.9858, Features=159
+   BERT-PCA(150, 97.5%)+Aesthetic  : MAE= 11.11, R2=0.9847, Features=167
+
+==========================================================================================
+                         EXPERIMENT 2: SCALING METHODS
+==========================================================================================
+
+[BEST CONFIG] BERT-PCA(150) + Aesthetic=False
+
+[TEST] Testing different scalers:
+   QuantileTransformer-normal    : MAE= 10.57, R2=0.9858
+   QuantileTransformer-uniform   : MAE= 10.55, R2=0.9858
+   StandardScaler                : MAE= 10.85, R2=0.9853
+   RobustScaler                  : MAE= 10.64, R2=0.9858
+
+==========================================================================================
+                         EXPERIMENT 3: ENSEMBLE ALGORITHMS
+==========================================================================================
+
+[BEST SCALER] QuantileTransformer-uniform
+
+[TEST] Testing different ensemble combinations:
+   RF             : MAE= 12.83, R2=0.9820
+   HGB            : MAE=  8.77, R2=0.9886
+   GBM            : MAE=  2.29, R2=0.9941
+
+[TEST] Testing ensemble weight combinations:
+   RF only                  : MAE= 12.83, R2=0.9820
+   HGB only                 : MAE=  8.77, R2=0.9886
+   GBM only                 : MAE=  2.29, R2=0.9941
+   RF+HGB (50/50)           : MAE= 10.55, R2=0.9858
+   RF+GBM (50/50)           : MAE=  7.67, R2=0.9901
+   HGB+GBM (50/50)          : MAE=  5.54, R2=0.9924
+   RF+HGB+GBM (33/33/33)    : MAE=  7.86, R2=0.9898
+   RF+HGB (60/40)           : MAE= 10.98, R2=0.9851
+   RF+HGB (40/60)           : MAE= 10.13, R2=0.9864
+   RF+HGB (70/30)           : MAE= 11.43, R2=0.9844
+   RF+HGB (30/70)           : MAE=  9.73, R2=0.9871
+
+==========================================================================================
+                    EXPERIMENT 4: HYPERPARAMETER FINE-TUNING
+==========================================================================================
+
+[BEST ENSEMBLE] GBM only
+
+[TEST] Testing Random Forest max_depth:
+   max_depth=10  : MAE= 37.74, R2=0.9209
+   max_depth=12  : MAE= 21.79, R2=0.9621
+   max_depth=14  : MAE= 12.83, R2=0.9820
+   max_depth=16  : MAE=  7.82, R2=0.9895
+   max_depth=18  : MAE=  5.00, R2=0.9918
+   max_depth=20  : MAE=  3.42, R2=0.9926
+   max_depth=None: MAE=  2.18, R2=0.9932
+
+[TEST] Testing HistGradientBoosting max_iter:
+   max_iter=200: MAE= 17.50, R2=0.9725
+   max_iter=300: MAE= 11.84, R2=0.9841
+   max_iter=400: MAE=  8.77, R2=0.9886
+   max_iter=500: MAE=  6.70, R2=0.9914
+   max_iter=600: MAE=  5.29, R2=0.9930
+
+==========================================================================================
+                              FINAL BEST MODEL
+==========================================================================================
+
+[BEST CONFIG SUMMARY]
+   Features: Baseline(9) + BERT-PCA(150)
+   BERT PCA: 150 components (97.5% variance)
+   Aesthetic: False
+   Total features: 159
+   Scaler: QuantileTransformer-uniform
+   Ensemble: GBM only
+   RF max_depth: None
+   HGB max_iter: 600
+
+[TRAIN] Training final optimized model...
+
+[RESULTS]
+   MAE:  254.01 likes
+   RMSE: 470.51 likes
+   R2:   -0.4113
+
+[INFO] Baseline still better by 390.2% (Baseline MAE=51.82)
+
+[SAVED] Model: models/phase5_1_advanced_model.pkl
+
+[TOP 15] Most Important Features:
+    1. bert_pca_2                     0.036968
+    2. hashtag_count                  0.036286
+    3. month                          0.034784
+    4. bert_pca_0                     0.031004
+    5. caption_length                 0.030678
+    6. bert_pca_5                     0.028547
+    7. word_count                     0.027673
+    8. bert_pca_6                     0.025561
+    9. bert_pca_1                     0.022046
+   10. bert_pca_8                     0.019912
+   11. bert_pca_14                    0.017914
+   12. bert_pca_21                    0.017390
+   13. bert_pca_19                    0.014795
+   14. bert_pca_7                     0.013773
+   15. bert_pca_17                    0.011787
+
+==========================================================================================
+                         PHASE 5.1 COMPLETE!
+==========================================================================================

@@ -193,8 +193,8 @@ class BaselineFeatureExtractor:
         features_df['date'] = df['date'].values
         features_df['url'] = df['url'].values
 
-        print(f"✅ Extracted {len(self.feature_names)} features")
-        print(f"✅ Feature names: {self.feature_names}")
+        print(f"[OK] Extracted {len(self.feature_names)} features")
+        print(f"[OK] Feature names: {self.feature_names}")
 
         return features_df
 
