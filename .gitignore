@@ -1,20 +1,306 @@
-# Large files excluded from Git
+# ==========================================
+# Instagram Engagement Prediction Project
+# Comprehensive .gitignore
+# ==========================================
 
-# Large model files (>100MB)
-models/phase9_multimodal_*.pkl
-models/phase5_1_advanced_model.pkl
+# ============ CRITICAL: LARGE MEDIA FILES ============
+# gallery-dl folder (9.9 GB of Instagram downloads)
+gallery-dl/
+gallery-dl/**/*
 
-# Large data files
-data/processed/bert_embeddings_multi_account.csv
+# ============ MODEL FILES ============
+# Large model files (>50MB) - keep only champion in separate repo/storage
+models/*.pkl
+models/**/*.pkl
 
-# Sensitive data
+# Exception: Keep small baseline models if < 10MB
+!models/baseline_rf_model.pkl
+!models/improved_rf_model.pkl
+
+# All model timestamped files
+models/*_20*.pkl
+models/phase*.pkl
+
+# ============ LARGE DATA FILES ============
+# Processed embeddings and features (can be regenerated)
+data/processed/bert_embeddings*.csv
+data/processed/vit_embeddings*.csv
+data/processed/aesthetic_features*.csv
+data/processed/advanced_visual_features*.csv
+data/processed/advanced_video_features*.csv
+data/processed/enhanced_visual_features*.csv
+data/processed/color_features*.csv
+data/processed/emoji_sentiment_features*.csv
+data/processed/temporal_features*.csv
+
+# Multi-account datasets (large)
+*_from_gallery_dl.csv
+*_from_gallery_dl_*.csv
+multi_account_dataset.csv
+
+# Any CSV larger than typical
+data/**/*multi_account*.csv
+data/**/*embeddings*.csv
+
+# ============ SENSITIVE DATA ============
+# Instagram cookies (NEVER commit!)
 cookies.txt
+*.cookie
+*.cookies
 
-# Python
+# Environment variables with secrets
+.env
+.env.local
+.env.*.local
+
+# API keys and credentials
+**/credentials.json
+**/secrets.json
+config/secrets.yaml
+
+# ============ LOGS & TEMPORARY FILES ============
+# All log files
+*.log
+*.txt
+!requirements.txt
+!README.txt
+
+# Specific logs
+*_log.txt
+*_extraction_log.txt
+*_training_log.txt
+download_*.log
+aesthetic_extraction*.log
+bert_extraction*.log
+phase*_log.txt
+
+# Temporary files
+*.tmp
+*.temp
+nul
+*.swp
+*.swo
+*~
+
+# ============ ARCHIVES & BACKUPS ============
+# Archive folder
+archive/
+archive/**/*
+
+# Backup files
+backup_*.tar.gz
+backup_*.zip
+*.bak
+*.backup
+
+# ============ PYTHON ============
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
 
-# Logs
-*.log
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
 
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# ============ IDE & EDITORS ============
+# VS Code
+.vscode/
+.vscode/**/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============ OPERATING SYSTEM ============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ============ MACHINE LEARNING SPECIFIC ============
+# TensorBoard logs
+runs/
+logs/
+lightning_logs/
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+*.pth
+*.h5
+*.hdf5
+*.pb
+
+# Weights & Biases
+wandb/
+
+# MLflow
+mlruns/
+
+# DVC (Data Version Control)
+.dvc/
+*.dvc
+
+# ============ EXPERIMENTS & RESULTS ============
+# Incomplete experiments
+experiments/incomplete/
+
+# Temporary experiment outputs
+experiments/temp/
+experiments/tmp/
+
+# Large experiment CSVs (keep summary only)
+experiments/*_results.csv
+!experiments/*_summary.csv
+
+# ============ DOCUMENTATION (KEEP SOME) ============
+# Keep main documentation
+!*.md
+!README.md
+!CHANGELOG.md
+!docs/**/*.md
+
+# Exclude very large documentation
+ULTRA*.md
+*SESSION*.md
+PHASE*_PROGRESS*.md
+
+# ============ MISCELLANEOUS ============
+# Compressed files (usually large)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache directories
+.cache/
+cache/
+__cache__/
+
+# ==========================================
+# KEEP THESE EXPLICITLY (whitelist)
+# ==========================================
+# Essential files to always keep
+!requirements.txt
+!setup.py
+!setup.cfg
+!pyproject.toml
+!config.yaml
+!config.json
+!README.md
+!LICENSE
+!.gitignore
+
+# Keep all Python source files
+!*.py
+
+# Keep documentation
+!docs/*.md
+!docs/**/*.md
+
+# Keep small config files
+!*.yaml
+!*.yml
+!*.json
+!*.toml
