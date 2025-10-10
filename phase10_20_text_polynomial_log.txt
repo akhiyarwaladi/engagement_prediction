@@ -1,0 +1,40 @@
+==========================================================================================
+        PHASE 10.20: TEXT FEATURE POLYNOMIAL (Non-linear Text Effects)
+                  Target: Beat Phase 10.18 MAE=43.89
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8610 posts
+
+[ENGINEER] Creating text polynomial features...
+   Created 6 text polynomial/log features:
+     - caption_length² & log(caption_length)
+     - word_count² & log(word_count)
+     - hashtag_count²
+     - mention_count²
+
+[STRATEGY] Text Polynomial + Phase 10.18 Visual
+   Baseline: 15 features (incl. text poly)
+   BERT: 768 -> 50 PCA
+   Visual: 7 features
+
+[FEATURES] Total: 72 features
+
+[MODEL] Training 4-model stacking ensemble (5-fold CV)...
+   Model 1/4: GradientBoostingRegressor
+   Model 2/4: HistGradientBoostingRegressor
+   Model 3/4: RandomForestRegressor
+   Model 4/4: ExtraTreesRegressor
+
+==========================================================================================
+[RESULT] Phase 10.20 Text Polynomial: MAE=44.22, R2=0.7080
+==========================================================================================
+
+[RESULT] Phase 10.18 remains champion
+   Phase 10.18: MAE=43.89
+   Phase 10.20: MAE=44.22
+   Text polynomial added noise: +0.33 MAE
+
+==========================================================================================
+                         PHASE 10.20 COMPLETE!
+==========================================================================================

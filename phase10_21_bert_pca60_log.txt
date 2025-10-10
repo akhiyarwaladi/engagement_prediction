@@ -1,0 +1,39 @@
+==========================================================================================
+          PHASE 10.21: BERT PCA 60 COMPONENTS (More Text Signal)
+                  Target: Beat Phase 10.19 MAE=43.74
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8610 posts
+
+[STRATEGY] Phase 10.19 winner + BERT PCA 60 (was 50)
+   Baseline: 9 features
+   BERT: 768 -> 60 PCA (was 50)
+   Visual: 10 features
+
+[PCA] Reducing BERT from 768 to 60 dimensions...
+   Variance preserved: 89.9% (was 88.4% with 50 components)
+
+[FEATURES] Total: 79 features (was 69 with PCA=50)
+
+[MODEL] Training 4-model stacking ensemble (5-fold CV)...
+   Model 1/4: GradientBoostingRegressor
+   Model 2/4: HistGradientBoostingRegressor
+   Model 3/4: RandomForestRegressor
+   Model 4/4: ExtraTreesRegressor
+
+==========================================================================================
+[RESULT] Phase 10.21 BERT PCA 60: MAE=43.70, R2=0.7116
+==========================================================================================
+
+[CHAMPION] NEW RECORD! Beat Phase 10.19 by 0.08%!
+   Phase 10.19: MAE=43.74
+   Phase 10.21: MAE=43.70
+   Improvement: 0.04 MAE points
+
+[SAVE] Model saved: models/phase10_21_bert_pca60_20251006_011144.pkl
+
+
+==========================================================================================
+                         PHASE 10.21 COMPLETE!
+==========================================================================================

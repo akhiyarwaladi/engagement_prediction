@@ -1,0 +1,82 @@
+==========================================================================================
+               PHASE 11.3: BERT PCA FINE-TUNING (62-68 Components)
+                    Target: Find EXACT Optimal PCA Dimensionality
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts from 8 accounts
+
+[STRATEGY] Test PCA components: 62, 63, 64, 65, 66, 67, 68
+   Baseline: 9, Visual+Cross: 15, Account: 5
+
+[PCA 62] Reducing BERT from 768 to 62 dimensions...
+   Variance preserved: 90.12%
+   Total features: 91
+   Training ensemble... MAE=29.07, R2=0.8452
+
+[PCA 63] Reducing BERT from 768 to 63 dimensions...
+   Variance preserved: 90.25%
+   Total features: 92
+   Training ensemble... MAE=28.69, R2=0.8390
+
+[PCA 64] Reducing BERT from 768 to 64 dimensions...
+   Variance preserved: 90.37%
+   Total features: 93
+   Training ensemble... MAE=28.34, R2=0.8405
+
+[PCA 65] Reducing BERT from 768 to 65 dimensions...
+   Variance preserved: 90.49%
+   Total features: 94
+   Training ensemble... MAE=28.20, R2=0.8431
+
+[PCA 66] Reducing BERT from 768 to 66 dimensions...
+   Variance preserved: 90.61%
+   Total features: 95
+   Training ensemble... MAE=28.55, R2=0.8461
+
+[PCA 67] Reducing BERT from 768 to 67 dimensions...
+   Variance preserved: 90.72%
+   Total features: 96
+   Training ensemble... MAE=28.77, R2=0.8407
+
+[PCA 68] Reducing BERT from 768 to 68 dimensions...
+   Variance preserved: 90.83%
+   Total features: 97
+   Training ensemble... MAE=29.04, R2=0.8427
+
+==========================================================================================
+[RESULTS SUMMARY] PCA Fine-Tuning
+==========================================================================================
+
+ PCA |  Variance |     MAE |      R2 | Features | Status
+----------------------------------------------------------------------
+  62 |    90.12% |   29.07 |  0.8452 |       91 | Good
+  63 |    90.25% |   28.69 |  0.8390 |       92 | Good
+  64 |    90.37% |   28.34 |  0.8405 |       93 | Good
+  65 |    90.49% |   28.20 |  0.8431 |       94 | BEST
+  66 |    90.61% |   28.55 |  0.8461 |       95 | Good
+  67 |    90.72% |   28.77 |  0.8407 |       96 | Good
+  68 |    90.83% |   29.04 |  0.8427 |       97 | Good
+
+==========================================================================================
+[OPTIMAL] PCA 65 components
+   MAE: 28.20
+   R2: 0.8431
+   Variance: 90.49%
+==========================================================================================
+
+   Phase 11.2 remains champion (MAE=28.13)
+   Best PCA config slightly worse (+0.25%)
+   But PCA 65 confirmed as optimal dimensionality
+
+==========================================================================================
+
+[INSIGHT] BERT PCA Variance-Performance Curve:
+   PCA 62: 90.12% variance -> MAE 29.07 (+ 0.87)
+   PCA 63: 90.25% variance -> MAE 28.69 (+ 0.48)
+   PCA 64: 90.37% variance -> MAE 28.34 (+ 0.14)
+   PCA 65: 90.49% variance -> MAE 28.20 (+ 0.00) <-- OPTIMAL
+   PCA 66: 90.61% variance -> MAE 28.55 (+ 0.35)
+   PCA 67: 90.72% variance -> MAE 28.77 (+ 0.57)
+   PCA 68: 90.83% variance -> MAE 29.04 (+ 0.84)
+
+[CONCLUSION] Exact optimal PCA components identified for production deployment

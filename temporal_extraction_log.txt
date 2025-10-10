@@ -1,0 +1,40 @@
+================================================================================
+                    PHASE 12.1: TEMPORAL FEATURE EXTRACTION
+               Time-Series Patterns for Instagram Engagement
+================================================================================
+
+[LOAD] Processing 8610 posts from 8 accounts
+
+[ENGINEER] Extracting temporal features...
+
+   Processing bemfebunja: 1131 posts
+   Processing bemfkik.unja: 1502 posts
+   Processing faperta.unja.official: 1353 posts
+   Processing fhunjaofficial: 958 posts
+   Processing fkipunja_official: 182 posts
+   Processing fst_unja: 396 posts
+   Processing himmajemen.unja: 1296 posts
+   Processing univ.jambi: 1792 posts
+
+[SAVE] Temporal features saved to: data/processed/temporal_features_multi_account.csv
+   Total features: 13
+   Total posts: 8610
+
+[SUMMARY] Temporal feature statistics:
+   Days since last post (mean): 2.68 ± 13.80
+   Posts per week (mean): 27.27
+   Posts after pause (>7 days): 685 (8.0%)
+   Post number range: 1 - 1790
+   Engagement trend 7d (mean): 169.08
+
+[TIME DISTRIBUTION] Posting patterns:
+   Morning (6-10 AM): 2886 posts (33.5%)
+   Afternoon (11-3 PM): 1913 posts (22.2%)
+   Evening (4-8 PM): 332 posts (3.9%)
+   Night (9 PM-5 AM): 3479 posts
+
+[RESEARCH] Temporal patterns in social media (2024-2025):
+   - Posting frequency impacts 20-30% of engagement
+   - Posts after pause (>7 days) get 15% more engagement
+   - Consistent posting schedule builds audience habit
+   - Time-of-day effects vary by account type

@@ -1,0 +1,38 @@
+==========================================================================================
+               PHASE 10.7: ADVANCED FEATURE SELECTION
+                    Target: Beat Phase 9 MAE=45.10
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8198 posts (BOTH visual + text)
+
+[EXPERIMENT] Testing feature selection strategies...
+
+[FEATURE IMPORTANCE] Computing mutual information scores...
+   Top 10 features by MI:
+      1. bert_pca_2: 2.2046
+      2. bert_pca_14: 2.1969
+      3. aes_pca_0: 2.1848
+      4. bert_pca_15: 2.1818
+      5. bert_pca_22: 2.1747
+      6. aes_pca_3: 2.1728
+      7. aes_pca_2: 2.1726
+      8. bert_pca_8: 2.1706
+      9. bert_pca_17: 2.1672
+      10. bert_pca_34: 2.1632
+
+   All 65 features (Phase 9)      MAE=45.28, R2=0.7092
+   Top 50 by MI                   MAE=46.40, R2=0.7015
+   Top 40 by MI                   MAE=47.50, R2=0.7064
+   Top 30 by MI                   MAE=47.92, R2=0.7026
+   Top 45 by MI                   MAE=47.46, R2=0.7039
+   Top 55 by MI                   MAE=47.20, R2=0.6977
+
+[BEST SELECTION] All 65 features (Phase 9): MAE=45.28
+
+==========================================================================================
+                              PHASE 10.7 COMPLETE!
+==========================================================================================
+
+[RESULT] MAE=45.28 (Phase 9 was 45.10)
+   Feature selection did not improve (all 65 features remain optimal)

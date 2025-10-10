@@ -1,0 +1,42 @@
+==========================================================================================
+        PHASE 10.18: ASPECT RATIO SQUARED (Non-linear Composition)
+                  Target: Beat Phase 10.16 MAE=43.92
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8610 posts
+
+[STRATEGY] Phase 10.16 + aspect_ratio² (non-linear composition effect)
+   Baseline: 9 features
+   BERT: 768 -> 50 PCA
+   Enhanced: 7 features
+     - aspect_ratio (original)
+     - aspect_ratio_sq (squared - NEW)
+     - resolution_log (Phase 10.16)
+
+[FEATURES] Total: 66 features
+   - Baseline: 9
+   - BERT PCA: 50
+   - Enhanced: 7
+
+[MODEL] Training 4-model stacking ensemble (5-fold CV)...
+   Model 1/4: GradientBoostingRegressor
+   Model 2/4: HistGradientBoostingRegressor
+   Model 3/4: RandomForestRegressor
+   Model 4/4: ExtraTreesRegressor
+
+==========================================================================================
+[RESULT] Phase 10.18 Aspect Squared: MAE=43.89, R2=0.7081
+==========================================================================================
+
+[CHAMPION] NEW RECORD! Beat Phase 10.16 by 0.07%!
+   Phase 10.16: MAE=43.92
+   Phase 10.18: MAE=43.89
+   Improvement: 0.03 MAE points
+
+[SAVE] Model saved: models/phase10_18_aspect_squared_20251005_225649.pkl
+
+
+==========================================================================================
+                         PHASE 10.18 COMPLETE!
+==========================================================================================

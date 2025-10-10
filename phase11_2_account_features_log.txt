@@ -1,0 +1,52 @@
+==========================================================================================
+            PHASE 11.2: ACCOUNT-SPECIFIC FEATURES (Multi-Account)
+                    Target: Beat Phase 10.24 MAE=43.49
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts from 8 accounts
+
+[ENGINEER] Account-specific features:
+   account_avg_likes: Mean likes per account
+   account_std_likes: Engagement variance per account
+   account_median_likes: Median likes per account
+   account_avg_caption_len: Average caption length per account
+   account_avg_hashtags: Average hashtag usage per account
+   account_video_ratio: Video/Photo ratio per account
+
+[ENGINEER] Relative features:
+   likes_vs_account_avg: Post likes / Account avg (target leakage protected)
+   caption_vs_account_avg: Post caption / Account avg caption
+   hashtag_vs_account_avg: Post hashtags / Account avg hashtags
+
+[STRATEGY] Phase 10.24 + BERT PCA 70 + Account Features
+   Baseline: 9
+   BERT: 768 -> 70 PCA
+   Visual+Cross: 15
+   Account-specific: 5 NEW
+
+[PCA] Reducing BERT from 768 to 70 dimensions...
+   Variance preserved: 91.0%
+
+[FEATURES] Total: 99 features (was 94, now with +5 account)
+
+[MODEL] Training 4-model stacking ensemble...
+   Training gb... Done
+   Training hgb... Done
+   Training rf... Done
+   Training et... Done
+   Training Ridge meta-learner... Done
+
+==========================================================================================
+[RESULT] Phase 11.2: MAE=28.13, R2=0.8408
+==========================================================================================
+[CHAMPION] NEW RECORD! Beat Phase 10.24 by 35.31%!
+   Account-specific features are effective!
+==========================================================================================
+
+[SAVE] Model saved: models/phase11_2_account_features_20251006_105905.pkl
+
+[INSIGHT] Account-level statistics tested:
+   Average likes per account
+   Engagement variance per account
+   Content style (caption length, hashtags, video ratio)
+   Relative metrics (post vs account average)

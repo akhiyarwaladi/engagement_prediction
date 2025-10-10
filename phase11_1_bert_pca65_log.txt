@@ -1,0 +1,40 @@
+==========================================================================================
+               PHASE 11.1: BERT PCA 65 COMPONENTS (Midpoint Test)
+                    Target: Beat Phase 10.24 MAE=43.49
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts
+
+[STRATEGY] Phase 10.24 foundation + BERT PCA 65 (was 70)
+   Baseline: 9, BERT: 768 -> 65 PCA, Visual+Cross: 15
+
+[PCA] Reducing BERT from 768 to 65 dimensions...
+   Variance preserved: 90.5%
+   Expected: Between 89.9% (PCA 60) and 91.0% (PCA 70)
+
+[FEATURES] Total: 89 features
+
+[MODEL] Training 4-model stacking ensemble...
+   Training gb... Done
+   Training hgb... Done
+   Training rf... Done
+   Training et... Done
+   Training Ridge meta-learner... Done
+
+==========================================================================================
+[RESULT] Phase 11.1: MAE=31.76, R2=0.8243
+==========================================================================================
+[CHAMPION] NEW RECORD! Beat Phase 10.24 by 26.98%!
+   Variance sweet spot confirmed at 90.5%
+==========================================================================================
+
+[SAVE] Model saved: models/phase11_1_bert_pca65_20251006_105531.pkl
+
+[SUMMARY] BERT PCA Comparison:
+Traceback (most recent call last):
+  File "C:\Users\MyPC PRO\Documents\engagement_prediction\phase11_1_bert_pca65.py", line 181, in <module>
+    print(f"   PCA 60: 89.9% variance \u2192 MAE=43.70")
+  File "C:\Users\MyPC PRO\.conda\envs\ultrathink\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 26: character maps to <undefined>

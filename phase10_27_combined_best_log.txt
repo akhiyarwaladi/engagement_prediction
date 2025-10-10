@@ -1,0 +1,21 @@
+==========================================================================================
+     PHASE 10.27: COMBINED BEST (BERT PCA 70 + Text-Visual Cross)
+                  Target: Beat Phase 10.23 MAE=43.64
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts
+
+[STRATEGY] BERT PCA 70 (more text signal) + text×visual cross (proven)
+   Baseline: 9, BERT: 768 -> 70 PCA, Visual+Cross: 15
+
+[PCA] Reducing BERT from 768 to 70 dimensions...
+   Variance preserved: 91.0%
+
+[FEATURES] Total: 94 features
+
+[MODEL] Training ensemble...
+==========================================================================================
+[RESULT] Phase 10.27: MAE=43.49, R2=0.7131
+==========================================================================================
+[CHAMPION] NEW RECORD! Beat Phase 10.23 by 0.35%!
+==========================================================================================

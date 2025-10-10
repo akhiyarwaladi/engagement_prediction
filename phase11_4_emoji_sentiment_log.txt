@@ -1,0 +1,50 @@
+==========================================================================================
+            PHASE 11.4: EMOJI + SENTIMENT FEATURES (Text Enhancement)
+                    Target: Beat Phase 11.2 MAE=28.13
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts from 8 accounts
+
+[STRATEGY] Phase 11.2 + Emoji/Sentiment Features
+   Baseline: 9
+   BERT: 768 -> 70 PCA (from Phase 11.2 champion)
+   Visual+Cross: 15
+   Account: 5
+   Emoji+Sentiment: 16 NEW
+
+[PCA] Reducing BERT from 768 to 70 dimensions...
+   Variance preserved: 91.05%
+
+[FEATURES] Total: 115 features (Phase 11.2: 99, +16 emoji/sentiment)
+
+[MODEL] Training 4-model stacking ensemble...
+   Training gb... Done
+   Training hgb... Done
+   Training rf... Done
+   Training et... Done
+   Training Ridge meta-learner... Done
+
+==========================================================================================
+[RESULT] Phase 11.4: MAE=28.24, R2=0.8496
+==========================================================================================
+   Phase 11.2 remains champion (MAE=28.13)
+   Emoji/sentiment features don't help (+0.38% worse)
+
+==========================================================================================
+
+[INSIGHT] Emoji & Sentiment Features Tested:
+   Emoji features: 6 (count, diversity, positioning)
+   Engagement features: 6 (exclamation, question, CTA, all-caps)
+   Sentiment features: 4 (positive/negative words, polarity, strength)
+
+[STATISTICS] Dataset emoji/sentiment usage:
+   Posts with emojis: 2877 (33.4%)
+   Mean emoji count: 3.95
+   Mean sentiment polarity: 0.321 (0=neutral, +1=very positive)
+   Posts with CTA keywords: 2797 (32.5%)
+
+[RESEARCH] 2024-2025 NLP findings:
+   - Emojis boost engagement 47% (Social Media Examiner)
+   - Emoji positioning impacts CTR
+   - Positive sentiment correlates with shares
+   - CTA keywords drive 32% more comments

@@ -1,0 +1,42 @@
+==========================================================================================
+               PHASE 10.8: OPTIMIZED ENSEMBLE WEIGHTS
+                    Target: Beat Phase 9 MAE=45.10
+==========================================================================================
+
+[LOAD] Loading multimodal dataset...
+   Dataset: 8198 posts (BOTH visual + text)
+
+[FEATURES] 65 total (9 baseline + 50 BERT + 6 aesthetic)
+
+[BASE MODELS] Training 4 base models with 5-fold OOF...
+   Training GBM...
+   Training HGB...
+   Training RF...
+   Training ET...
+
+[EXPERIMENT] Testing meta-learner configurations...
+
+   Ridge alpha=10 (Phase 9)            MAE=45.28, R2=0.7092
+   Ridge alpha=1                       MAE=45.33, R2=0.7085
+   Ridge alpha=5                       MAE=45.30, R2=0.7088
+   Ridge alpha=20                      MAE=45.25, R2=0.7098
+   Ridge alpha=50                      MAE=45.34, R2=0.7110
+   Ridge alpha=100                     MAE=45.70, R2=0.7120
+   Lasso alpha=0.001                   MAE=45.23, R2=0.7109
+   Lasso alpha=0.01                    MAE=45.57, R2=0.7113
+   Lasso alpha=0.1                     MAE=54.06, R2=0.6633
+   ElasticNet alpha=0.01               MAE=45.62, R2=0.7121
+   ElasticNet alpha=0.1                MAE=50.07, R2=0.6841
+
+[OPTIMIZATION] Finding optimal base model weights...
+   Optimal weights: GBM=0.842, HGB=0.000, RF=0.000, ET=0.158
+   Weighted average MAE=47.54, R2=0.6930
+
+[BEST META] Lasso alpha=0.001: MAE=45.23
+
+==========================================================================================
+                              PHASE 10.8 COMPLETE!
+==========================================================================================
+
+[RESULT] MAE=45.23 (Phase 9 was 45.10)
+   Weight optimization did not improve (Ridge alpha=10 remains optimal)

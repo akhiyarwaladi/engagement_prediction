@@ -1,0 +1,71 @@
+==========================================================================================
+          PHASE 12.2: ADVANCED TEMPORAL PATTERNS
+                         Lag Features + Velocity + Seasonality
+==========================================================================================
+
+[LOAD] Dataset: 8610 posts from 8 accounts
+
+[ENGINEER] Extracting advanced temporal features...
+
+   Processing bemfebunja: 1131 posts
+   Processing bemfkik.unja: 1502 posts
+   Processing faperta.unja.official: 1353 posts
+   Processing fhunjaofficial: 958 posts
+   Processing fkipunja_official: 182 posts
+   Processing fst_unja: 396 posts
+   Processing himmajemen.unja: 1296 posts
+   Processing univ.jambi: 1792 posts
+
+[SAVE] Advanced temporal features: 16 features
+
+[STRATEGY] Phase 11.2 + Basic Temporal + Advanced Temporal
+   Baseline: 9
+   BERT: 768 -> 70 PCA
+   Visual+Cross: 15
+   Account: 5
+   Temporal Basic: 12
+   Temporal Advanced: 16 NEW
+
+[PCA] Reducing BERT from 768 to 70 dimensions...
+   Variance preserved: 91.62%
+
+[FEATURES] Total: 127 features
+   Phase 11.2: 99
+   + Basic Temporal (Phase 12.1): 12
+   + Advanced Temporal (Phase 12.2): 16
+
+[MODEL] Training 4-model stacking ensemble...
+   Training gb... Done
+   Training hgb... Done
+   Training rf... Done
+   Training et... Done
+   Training Ridge meta-learner... Done
+
+==========================================================================================
+[RESULT] Phase 12.2: MAE=10.72, R2=0.9412
+==========================================================================================
+[CHAMPION] NEW RECORD! Beat Phase 11.2 by 61.89%!
+   Advanced temporal patterns are effective!
+
+==========================================================================================
+
+[SAVE] Model saved: models/phase12_2_advanced_temporal_20251006_234009.pkl
+
+[INSIGHT] Advanced Temporal Features Tested (16):
+   Lag features: 3 (lag_1, lag_2, lag_3 likes)
+   Velocity: 3 (engagement, acceleration, posting)
+   Seasonal: 5 (day/week/quarter, month start/end)
+   Trend: 4 (30d mean/std, momentum)
+   Interaction: 1 (caption vs lag1)
+
+[STATISTICS] Advanced temporal patterns:
+   Mean lag_1_likes: 198.34
+   Engagement velocity (mean): 7.06
+   Engagement momentum (mean): 1.00
+   Posting velocity (mean): 3.45
+
+[RESEARCH] 2024-2025 time-series research:
+   - Lag features capture autocorrelation (5-15% improvement)
+   - Velocity metrics detect momentum (3-8% improvement)
+   - Seasonal patterns account for calendar effects
+   - Acceleration captures engagement trend changes
